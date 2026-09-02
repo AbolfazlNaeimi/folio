@@ -379,7 +379,7 @@ section{ position:relative; z-index:1; }
 
 @media (max-width: 900px){
   .hero-grid{ grid-template-columns:1fr; }
-  .hero-visual{ order:-1; max-width:340px; margin-inline:auto; }
+ .hero-visual{ order:-1; width:100%; max-width:340px; margin-inline:auto; }
 }
 
 /* ---------- Philosophy strip (signature: Understand -> Reason -> Act) ---------- */
