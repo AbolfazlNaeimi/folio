@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <url>
+    <loc>https://abolfazlnaeimi.github.io/</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://abolfazlnaeimi.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://abolfazlnaeimi.github.io/en/"/>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://abolfazlnaeimi.github.io/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://abolfazlnaeimi.github.io/about.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://abolfazlnaeimi.github.io/en/about.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://abolfazlnaeimi.github.io/projects.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://abolfazlnaeimi.github.io/projects.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://abolfazlnaeimi.github.io/en/projects.html"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://abolfazlnaeimi.github.io/contact.html</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://abolfazlnaeimi.github.io/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://abolfazlnaeimi.github.io/en/contact.html"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://abolfazlnaeimi.github.io/en/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://abolfazlnaeimi.github.io/en/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://abolfazlnaeimi.github.io/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://abolfazlnaeimi.github.io/en/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://abolfazlnaeimi.github.io/en/about.html"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://abolfazlnaeimi.github.io/about.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://abolfazlnaeimi.github.io/en/projects.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://abolfazlnaeimi.github.io/en/projects.html"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://abolfazlnaeimi.github.io/projects.html"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://abolfazlnaeimi.github.io/en/contact.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://abolfazlnaeimi.github.io/en/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://abolfazlnaeimi.github.io/contact.html"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+</urlset>
