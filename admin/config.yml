@@ -1,0 +1,100 @@
+# Decap CMS configuration for the Journal.
+#
+# IMPORTANT — one-time setup required before this panel can log in:
+# The GitHub backend below needs an OAuth app + a tiny relay ("auth
+# endpoint") to complete GitHub login — GitHub Pages alone can't do
+# this (it's a static host, no server-side code). This is normal for
+# Decap CMS on GitHub Pages, not specific to this project.
+#
+# The relay is already built for you — see /cms-oauth-worker/ at the
+# repo root (a small Cloudflare Worker) and follow /cms-oauth-worker/README.md
+# to deploy it and get the base_url below. Until that's done, you can
+# still add/edit posts by committing markdown files directly to
+# journal/_posts/ from the GitHub web UI — the site and the "Build
+# Journal Index" Action work either way.
+
+backend:
+  name: github
+  repo: AbolfazlNaeimi/abolfazlnaeimi.github.io # ⚠️ update if your repo name is different
+  branch: main
+  base_url: https://your-oauth-worker.example.workers.dev # ⚠️ replace once the OAuth relay (see above) is deployed
+  auth_endpoint: auth
+
+# Where uploaded media (cover images, gallery images) are stored in the
+# repo, and the URL path the live site uses to reach them.
+media_folder: "journal/uploads"
+public_folder: "/journal/uploads"
+
+site_url: https://abolfazlnaeimi.github.io/folio
+display_url: https://abolfazlnaeimi.github.io/folio/journal/
+
+locale: "en"
+
+collections:
+  - name: "journal"
+    label: "Journal"
+    label_singular: "Post"
+    folder: "journal/_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    identifier_field: title
+    summary: "{{title}} — {{date}}"
+    sortable_fields: ["date", "title", "category"]
+    view_filters:
+      - label: "Featured"
+        field: featured
+        pattern: true
+      - label: "Pinned"
+        field: pinned
+        pattern: true
+    fields:
+      - { label: "عنوان (Title)", name: "title", widget: "string" }
+      - { label: "زیرعنوان (Subtitle)", name: "subtitle", widget: "string", required: false, hint: "اگر خالی بماند، از ابتدای متن به‌صورت خودکار خلاصه ساخته می‌شود." }
+      - { label: "تاریخ انتشار (Date)", name: "date", widget: "datetime", format: "YYYY-MM-DD", time_format: false }
+      - { label: "آخرین بروزرسانی (Updated)", name: "updated", widget: "datetime", format: "YYYY-MM-DD", time_format: false, required: false }
+      - { label: "دسته‌بندی (Category)", name: "category", widget: "string", required: false, hint: "مثلاً: Building, AI, Development, Ideas, RimNova, Personal — یا هر دسته‌ی جدیدی که بخواهی." }
+      - { label: "برچسب‌ها (Tags)", name: "tags", widget: "list", required: false }
+      - { label: "تصویر کاور (Cover Image)", name: "cover", widget: "image", required: false, hint: "هم در بالای پست نمایش داده می‌شود، هم به‌عنوان تصویر پیش‌فرض اشتراک‌گذاری (اگر Social Image جدا نباشد)." }
+      - { label: "تصویر اختصاصی اشتراک‌گذاری (Social Image)", name: "social_image", widget: "image", required: false, hint: "اختیاری. فقط وقتی لازم است که بخواهی تصویر Preview این پست در شبکه‌های اجتماعی با تصویر کاور فرق کند. ابعاد پیشنهادی: 1200×630." }
+      - { label: "Featured", name: "featured", widget: "boolean", default: false, hint: "در صفحه‌ی اصلی ژورنال به‌صورت برجسته نمایش داده می‌شود." }
+      - { label: "Pinned", name: "pinned", widget: "boolean", default: false, hint: "بالاتر از بقیه‌ی پست‌ها ثابت می‌شود." }
+      - { label: "مجموعه (Series)", name: "series", widget: "string", required: false, hint: "اگر این پست بخشی از یک مجموعه‌ی چندقسمتی است، اسم مجموعه را بنویس." }
+      - { label: "شماره‌ی قسمت در مجموعه (Series Order)", name: "series_order", widget: "number", required: false, value_type: "int" }
+      - label: "بازنشر (Repost)"
+        name: "repost"
+        widget: "object"
+        required: false
+        collapsed: true
+        hint: "اگر این نوشته ابتدا جای دیگری (مثل X یا LinkedIn) منتشر شده."
+        fields:
+          - { label: "منبع (Source name)", name: "source", widget: "string" }
+          - { label: "لینک منبع اصلی (Source URL)", name: "url", widget: "string" }
+      - label: "گالری تصاویر (Gallery)"
+        name: "gallery"
+        widget: "list"
+        required: false
+        field: { label: "Image", name: "image", widget: "image" }
+      - label: "ویدیو (Video)"
+        name: "video"
+        widget: "object"
+        required: false
+        collapsed: true
+        fields:
+          - { label: "YouTube Video ID", name: "youtube", widget: "string", required: false, hint: "فقط آیدی ویدیو، مثلاً dQw4w9WgXcQ" }
+          - { label: "فایل MP4 مستقیم", name: "mp4", widget: "file", required: false }
+      - label: "تاریخچه‌ی تغییرات (Changelog)"
+        name: "changelog"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "نسخه (Version)", name: "version", widget: "string" }
+          - { label: "توضیح (Note)", name: "note", widget: "string" }
+      - label: "متن اصلی (Body)"
+        name: "body"
+        widget: "markdown"
+        hint: >-
+          برای Callout از این‌ها استفاده کن — هر کدام را در یک خط جدا،
+          قبل و بعد از متن callout بنویس:
+          :::tip ... :::   /   :::note ... :::   /   :::warning ... :::   /   :::info ... :::

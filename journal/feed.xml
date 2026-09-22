@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AN Journal — ابوالفضل نعیمی</title>
+    <link>https://abolfazlnaeimi.github.io/folio/journal/</link>
+    <atom:link href="https://abolfazlnaeimi.github.io/folio/journal/feed.xml" rel="self" type="application/rss+xml"/>
+    <description>یادداشت‌ها و نوشته‌های ابوالفضل نعیمی درباره ساخت محصول، RimNova و هوش مصنوعی.</description>
+    <language>fa</language>
+    <lastBuildDate>Mon, 21 Sep 2026 19:35:22 GMT</lastBuildDate>
+    <item>
+      <title>چرا ریم‌نوا را ساختم</title>
+      <link>https://abolfazlnaeimi.github.io/folio/journal/why-i-built-rimnova/</link>
+      <guid isPermaLink="true">https://abolfazlnaeimi.github.io/folio/journal/why-i-built-rimnova/</guid>
+      <description>شروع یک برند شخصی برای همه‌ی چیزهایی که می‌سازم</description>
+      <pubDate>Sun, 14 Jun 2026 00:00:00 GMT</pubDate>
+      <category>RimNova</category>
+    </item>
+    <item>
+      <title>پشت صحنه‌ی طراحی پورتفولیو</title>
+      <link>https://abolfazlnaeimi.github.io/folio/journal/portfolio-design-process/</link>
+      <guid isPermaLink="true">https://abolfazlnaeimi.github.io/folio/journal/portfolio-design-process/</guid>
+      <description>از اسکچ اولیه‌ی لوگو تا نسخه‌ی نهایی سایت</description>
+      <pubDate>Wed, 05 Aug 2026 00:00:00 GMT</pubDate>
+      <category>Building</category>
+    </item>
+    <item>
+      <title>نرم‌افزار نسل بعد فقط منتظر کلیک نمی‌مونه</title>
+      <link>https://abolfazlnaeimi.github.io/folio/journal/next-gen-software/</link>
+      <guid isPermaLink="true">https://abolfazlnaeimi.github.io/folio/journal/next-gen-software/</guid>
+      <description>یک فکر کوتاه درباره‌ی Understand → Reason → Act</description>
+      <pubDate>Mon, 20 Jul 2026 00:00:00 GMT</pubDate>
+      <category>Ideas</category>
+    </item>
+    <item>
+      <title>معماری فنی ریمیار</title>
+      <link>https://abolfazlnaeimi.github.io/folio/journal/rimyar-architecture/</link>
+      <guid isPermaLink="true">https://abolfazlnaeimi.github.io/folio/journal/rimyar-architecture/</guid>
+      <description>چطور یک دستیار تصمیم‌گیری را روی Cloudflare Workers ساختم</description>
+      <pubDate>Thu, 02 Jul 2026 00:00:00 GMT</pubDate>
+      <category>Development</category>
+    </item>
+  </channel>
+</rss>

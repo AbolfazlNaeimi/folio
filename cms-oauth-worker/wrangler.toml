@@ -1,0 +1,9 @@
+name = "an-journal-cms-oauth"
+main = "worker.js"
+compatibility_date = "2026-01-01"
+
+# After creating the GitHub OAuth App (see README.md in this folder),
+# set the two secrets below — never put them directly in this file:
+#
+#   wrangler secret put GITHUB_CLIENT_ID
+#   wrangler secret put GITHUB_CLIENT_SECRET

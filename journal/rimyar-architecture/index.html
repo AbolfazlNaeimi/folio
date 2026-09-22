@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>معماری فنی ریمیار | ژورنال ابوالفضل نعیمی</title>
+<meta name="description" content="چطور یک دستیار تصمیم‌گیری را روی Cloudflare Workers ساختم">
+<link rel="canonical" href="https://abolfazlnaeimi.github.io/folio/journal/rimyar-architecture/">
+<link rel="alternate" type="application/rss+xml" title="AN Journal — ابوالفضل نعیمی" href="https://abolfazlnaeimi.github.io/folio/journal/feed.xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AN Journal — Abolfazl Naeimi">
+<meta property="og:locale" content="fa_IR">
+<meta property="og:title" content="معماری فنی ریمیار">
+<meta property="og:description" content="چطور یک دستیار تصمیم‌گیری را روی Cloudflare Workers ساختم">
+<meta property="og:image" content="https://abolfazlnaeimi.github.io/folio/journal/uploads/rimyar-promo.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://abolfazlnaeimi.github.io/folio/journal/rimyar-architecture/">
+<meta property="article:published_time" content="2026-07-02">
+
+<meta property="article:author" content="Abolfazl Naeimi">
+<meta property="article:section" content="Development">
+<meta property="article:tag" content="AI">
+<meta property="article:tag" content="RimYar">
+<meta property="article:tag" content="Cloudflare Workers">
+<meta property="article:tag" content="Architecture">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@amir.dev">
+<meta name="twitter:title" content="معماری فنی ریمیار">
+<meta name="twitter:description" content="چطور یک دستیار تصمیم‌گیری را روی Cloudflare Workers ساختم">
+<meta name="twitter:image" content="https://abolfazlnaeimi.github.io/folio/journal/uploads/rimyar-promo.jpg">
+<meta name="theme-color" content="#08090b">
+<link rel="icon" href="../../assets/img/journal-favicon.ico" sizes="any">
+<link rel="icon" href="../../assets/img/journal-icon-32.png" type="image/png">
+<link rel="apple-touch-icon" href="../../assets/img/journal-icon-192.png">
+<link rel="manifest" href="../../assets/site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="../../assets/css/journal.css">
+<noscript><style>.reveal{opacity:1!important;transform:none!important;}</style></noscript>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "معماری فنی ریمیار",
+  "description": "چطور یک دستیار تصمیم‌گیری را روی Cloudflare Workers ساختم",
+  "datePublished": "2026-07-02",
+  "dateModified": "2026-07-02",
+  "author": {
+    "@type": "Person",
+    "name": "Abolfazl Naeimi",
+    "url": "https://abolfazlnaeimi.github.io/folio/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Abolfazl Naeimi",
+    "url": "https://abolfazlnaeimi.github.io/folio/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://abolfazlnaeimi.github.io/folio/assets/img/journal-icon-192.png"
+    }
+  },
+  "image": "https://abolfazlnaeimi.github.io/folio/journal/uploads/rimyar-promo.jpg",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://abolfazlnaeimi.github.io/folio/journal/rimyar-architecture/"
+  },
+  "url": "https://abolfazlnaeimi.github.io/folio/journal/rimyar-architecture/",
+  "articleSection": "Development",
+  "keywords": "AI, RimYar, Cloudflare Workers, Architecture"
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">رفتن به محتوای اصلی</a>
+
+<div class="reading-progress"><div class="bar" id="reading-progress-bar"></div></div>
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="../../index.html" class="brand">
+      <img src="../../assets/img/journal-icon-64.png" alt="نشان ژورنال ابوالفضل نعیمی" width="34" height="34">
+      <span>ابوالفضل نعیمی<small>AN Journal</small></span>
+    </a>
+    <nav class="nav-links" id="nav-links">
+      <a href="../../index.html">خانه</a>
+      <a href="../../about.html">درباره من</a>
+      <a href="../../projects.html">نمونه‌کارها</a>
+      <a href="../index.html" aria-current="page">ژورنال</a>
+      <a href="../../contact.html">تماس</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="nav-toggle" aria-label="باز کردن منو" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <article>
+    <div class="container post-hero">
+      <div class="jf-meta" id="post-meta-top"><span>Development</span><span>11 تیر 1405</span><span>1 دقیقه مطالعه</span></div>
+      <h1 id="post-title">معماری فنی ریمیار</h1>
+      <p class="subtitle" id="post-subtitle">چطور یک دستیار تصمیم‌گیری را روی Cloudflare Workers ساختم</p>
+    </div>
+
+    <div class="container">
+      <div class="post-toolbar">
+        <button class="pt-btn" id="btn-bookmark" aria-pressed="false" aria-label="نشان کردن این پست" title="نشان کردن">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1Z"/></svg>
+        </button>
+        <div class="pt-btn-wrap">
+          <button class="pt-btn" id="btn-share" aria-label="اشتراک‌گذاری" title="اشتراک‌گذاری" aria-haspopup="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 10.5 15.4 6.5M8.6 13.5 15.4 17.5"/></svg>
+          </button>
+          <div class="share-panel" id="share-panel">
+            <button type="button" id="share-native" style="display:none">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v14"/></svg>
+              اشتراک‌گذاری با سیستم
+            </button>
+            <button type="button" id="share-copy">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+              <span id="share-copy-label">کپی لینک</span>
+            </button>
+            <hr>
+            <a href="#" id="share-x" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2.8h3.1L15.3 10.9 23.3 21.2H17L11.9 14.7 6.1 21.2H3L10.4 12.6 2.7 2.8H9.2L13.9 8.7 18.9 2.8Z"/></svg>
+              اشتراک در X
+            </a>
+            <a href="#" id="share-linkedin" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M18.5 18.5V13.2A3.26 3.26 0 0 0 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17A1.4 1.4 0 0 1 15.71 13.57V18.5H18.5M6.88 8.56A1.68 1.68 0 0 0 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19A1.69 1.69 0 0 0 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56M8.27 18.5V10.13H5.5V18.5H8.27Z"/></svg>
+              اشتراک در LinkedIn
+            </a>
+            <a href="#" id="share-telegram" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M17.4 8.1C17.25 9.7 16.6 13.55 16.27 15.3C16.13 16.05 15.85 16.3 15.6 16.35C15.05 16.4 14.63 16 14.1 15.63C13.28 15.05 12.81 14.7 12 14.13C11.07 13.48 11.7 13.13 12.25 12.55C12.4 12.4 14.8 10.2 14.85 10C14.87 9.94 14.85 9.7 14.7 9.6C14.55 9.5 14.35 9.53 14.2 9.56C14 9.6 11.65 11.15 9.05 12.85C8.65 13.1 8.29 13.23 7.97 13.22C7.4 13.21 6.35 12.91 5.85 12.65C5.24 12.35 5.5 12.05 5.94 11.75C8.55 10.58 10.53 9.75 11.85 9.2C14.5 8.05 15.6 7.6 16.13 7.55C16.42 7.53 16.68 7.62 16.88 7.85C17.05 8.04 17.35 8.15 17.4 8.1Z"/></svg>
+              اشتراک در تلگرام
+            </a>
+          </div>
+        </div>
+        <div class="pt-btn-wrap">
+          <button class="pt-btn" id="btn-reading-mode" aria-pressed="false" aria-label="حالت مطالعه" title="حالت مطالعه">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H12v18H6.5A2.5 2.5 0 0 1 4 18.5v-13ZM20 5.5A2.5 2.5 0 0 0 17.5 3H12v18h5.5a2.5 2.5 0 0 0 2.5-2.5v-13Z"/></svg>
+          </button>
+          <button class="pt-btn" id="btn-text-settings" aria-label="تنظیمات متن" title="تنظیمات متن" style="margin-inline-start:8px">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h10M4 17h16"/></svg>
+          </button>
+          <div class="reading-settings" id="reading-settings">
+            <div class="rs-row"><span>اندازه‌ی متن</span><div class="rs-stepper"><button data-font="-">−</button><button data-font="+">+</button></div></div>
+            <div class="rs-row"><span>فاصله‌ی خطوط</span><div class="rs-stepper"><button data-leading="-">−</button><button data-leading="+">+</button></div></div>
+            <div class="rs-row"><span>عرض متن</span><div class="rs-stepper"><button data-width="-">−</button><button data-width="+">+</button></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container" id="post-cover-slot"><div class="post-cover reveal"><img src="../../journal/uploads/rimyar-promo.jpg" alt="معماری فنی ریمیار" loading="eager"></div></div>
+    <div class="container" id="post-repost-slot"></div>
+
+    <div class="container">
+      <div class="post-body" id="post-body">
+        <p style="color:var(--ink-text-mute)">در حال بارگذاری…</p>
+      </div>
+      <div id="post-gallery-slot"><div class="post-gallery reveal" style="max-width:70ch;margin:32px auto 0"><button type="button" data-lightbox-src="../../journal/uploads/rimnova-tech-architecture.jpg"><img src="../../journal/uploads/rimnova-tech-architecture.jpg" alt="معماری فنی ریمیار" loading="lazy"></button><button type="button" data-lightbox-src="../../journal/uploads/rimyar-desk-scene.jpg"><img src="../../journal/uploads/rimyar-desk-scene.jpg" alt="معماری فنی ریمیار" loading="lazy"></button></div></div>
+      <div id="post-video-slot"></div>
+      <div id="post-changelog-slot"></div>
+      <div id="post-series-slot"><div class="series-box reveal">
+    <div class="sb-label">Series</div>
+    <div class="sb-title">ساخت ریم‌نوا</div>
+    <ol><li><a href="../why-i-built-rimnova/">چرا ریم‌نوا را ساختم</a></li><li class="is-current">معماری فنی ریمیار</li></ol>
+  </div></div>
+      <div id="post-nav-slot"><div class="post-nav-links reveal"><a href="../why-i-built-rimnova/"><div class="pnl-label">نوشته‌ی قبلی</div><div class="pnl-title">چرا ریم‌نوا را ساختم</div></a><a class="pnl-next" href="../next-gen-software/"><div class="pnl-label">نوشته‌ی بعدی</div><div class="pnl-title">نرم‌افزار نسل بعد فقط منتظر کلیک نمی‌مونه</div></a></div></div>
+      <div id="related-posts-slot"><div class="related-posts reveal"><h3>نوشته‌های مرتبط</h3><div class="related-grid"><a class="jcard" href="../next-gen-software/"><div class="jc-media"><img src="../../journal/uploads/rimnova-software-architecture.jpg" alt="نرم‌افزار نسل بعد فقط منتظر کلیک نمی‌مونه" loading="lazy"></div><div class="jc-body">
+        <div class="jc-meta"><span class="jc-cat">Ideas</span><span>29 تیر 1405</span></div>
+        <h3>نرم‌افزار نسل بعد فقط منتظر کلیک نمی‌مونه</h3>
+      </div></a></div></div></div>
+    </div>
+  </article>
+</main>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightbox-close" aria-label="بستن">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18"/></svg>
+  </button>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <img src="../../assets/img/journal-icon-192.png" alt="" width="22" height="22" style="border-radius:6px">
+      <img src="../../assets/img/brand/rimnova-chip-96.png" alt="RimNova" width="20" height="20" style="border-radius:6px; opacity:.9">
+      <span>© <span data-year>2026</span> ابوالفضل نعیمی — RimNova. تمام حقوق محفوظ است.</span>
+    </div>
+    <div class="footer-links">
+      <a href="../../about.html">درباره من</a>
+      <a href="../../projects.html">نمونه‌کارها</a>
+      <a href="../index.html">ژورنال</a>
+      <a href="../../contact.html">تماس</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://github.com/AbolfazlNaeimi" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.833.092-.647.35-1.088.636-1.339-2.221-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.338 1.909-1.296 2.747-1.026 2.747-1.026.546 1.378.203 2.397.1 2.65.64.7 1.028 1.595 1.028 2.688 0 3.848-2.337 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.418-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2Z"/></svg></a>
+      <a href="https://www.linkedin.com/in/abolfazl-naeimi" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M18.5 18.5V13.2A3.26 3.26 0 0 0 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17A1.4 1.4 0 0 1 15.71 13.57V18.5H18.5M6.88 8.56A1.68 1.68 0 0 0 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19A1.69 1.69 0 0 0 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56M8.27 18.5V10.13H5.5V18.5H8.27Z"/></svg></a>
+      <a href="https://t.me/09114975636" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M17.4 8.1C17.25 9.7 16.6 13.55 16.27 15.3C16.13 16.05 15.85 16.3 15.6 16.35C15.05 16.4 14.63 16 14.1 15.63C13.28 15.05 12.81 14.7 12 14.13C11.07 13.48 11.7 13.13 12.25 12.55C12.4 12.4 14.8 10.2 14.85 10C14.87 9.94 14.85 9.7 14.7 9.6C14.55 9.5 14.35 9.53 14.2 9.56C14 9.6 11.65 11.15 9.05 12.85C8.65 13.1 8.29 13.23 7.97 13.22C7.4 13.21 6.35 12.91 5.85 12.65C5.24 12.35 5.5 12.05 5.94 11.75C8.55 10.58 10.53 9.75 11.85 9.2C14.5 8.05 15.6 7.6 16.13 7.55C16.42 7.53 16.68 7.62 16.88 7.85C17.05 8.04 17.35 8.15 17.4 8.1Z"/></svg></a>
+      <a href="https://x.com/amir.dev" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2.8h3.1L15.3 10.9 23.3 21.2H17L11.9 14.7 6.1 21.2H3L10.4 12.6 2.7 2.8H9.2L13.9 8.7 18.9 2.8M17.7 19.3H19.4L8.4 4.6H6.5L17.7 19.3Z"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" aria-label="بازگشت به بالا"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+
+<script>window.__JOURNAL_SLUG__ = "rimyar-architecture"; window.__JOURNAL_FILE__ = "2026-07-02-rimyar-architecture.md";</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+<script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/journal-post.js"></script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+{
+  "generatedAt": "2026-09-21T19:35:22.094Z",
+  "count": 4,
+  "categories": [
+    "Building",
+    "Development",
+    "Ideas",
+    "RimNova"
+  ],
+  "tags": [
+    "AI",
+    "Architecture",
+    "Branding",
+    "Building",
+    "Cloudflare Workers",
+    "Design",
+    "Personal",
+    "Process",
+    "RimNova",
+    "RimYar",
+    "Thoughts"
+  ],
+  "posts": [
+    {
+      "slug": "why-i-built-rimnova",
+      "title": "چرا ریم‌نوا را ساختم",
+      "excerpt": "شروع یک برند شخصی برای همه‌ی چیزهایی که می‌سازم",
+      "date": "2026-06-14",
+      "category": "RimNova",
+      "tags": [
+        "RimNova",
+        "Building",
+        "Personal"
+      ],
+      "cover": "/journal/uploads/rimnova-brand-poster.jpg",
+      "featured": true,
+      "pinned": true,
+      "series": "ساخت ریم‌نوا",
+      "readingTime": 1
+    },
+    {
+      "slug": "portfolio-design-process",
+      "title": "پشت صحنه‌ی طراحی پورتفولیو",
+      "excerpt": "از اسکچ اولیه‌ی لوگو تا نسخه‌ی نهایی سایت",
+      "date": "2026-08-05",
+      "category": "Building",
+      "tags": [
+        "Design",
+        "Process",
+        "Branding"
+      ],
+      "cover": "/journal/uploads/an-logo-usage-sheet.jpg",
+      "featured": false,
+      "pinned": false,
+      "series": null,
+      "readingTime": 1
+    },
+    {
+      "slug": "next-gen-software",
+      "title": "نرم‌افزار نسل بعد فقط منتظر کلیک نمی‌مونه",
+      "excerpt": "یک فکر کوتاه درباره‌ی Understand → Reason → Act",
+      "date": "2026-07-20",
+      "category": "Ideas",
+      "tags": [
+        "AI",
+        "Thoughts"
+      ],
+      "cover": "/journal/uploads/rimnova-software-architecture.jpg",
+      "featured": false,
+      "pinned": false,
+      "series": null,
+      "readingTime": 1
+    },
+    {
+      "slug": "rimyar-architecture",
+      "title": "معماری فنی ریمیار",
+      "excerpt": "چطور یک دستیار تصمیم‌گیری را روی Cloudflare Workers ساختم",
+      "date": "2026-07-02",
+      "category": "Development",
+      "tags": [
+        "AI",
+        "RimYar",
+        "Cloudflare Workers",
+        "Architecture"
+      ],
+      "cover": "/journal/uploads/rimyar-promo.jpg",
+      "featured": false,
+      "pinned": false,
+      "series": "ساخت ریم‌نوا",
+      "readingTime": 1
+    }
+  ]
+}

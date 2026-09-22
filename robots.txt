@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /journal/_posts/
+Disallow: /journal/_template/
 
-Sitemap: https://abolfazlnaeimi.github.io/sitemap.xml
+Sitemap: https://abolfazlnaeimi.github.io/folio/sitemap.xml
