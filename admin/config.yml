@@ -15,9 +15,9 @@
 
 backend:
   name: github
-  repo: AbolfazlNaeimi/abolfazlnaeimi.github.io # ⚠️ update if your repo name is different
+  repo: abolfazlnaeimi.github.io/folio/ # ⚠️ update if your repo name is different
   branch: main
-  base_url: https://your-oauth-worker.example.workers.dev # ⚠️ replace once the OAuth relay (see above) is deployed
+  base_url: https://cms-oauth.rimnova.workers.dev/ # ⚠️ replace once the OAuth relay (see above) is deployed
   auth_endpoint: auth
 
 # Where uploaded media (cover images, gallery images) are stored in the
