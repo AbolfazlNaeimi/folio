@@ -97,9 +97,13 @@
 .journal-featured:hover{ border-color:var(--ink-600); }
 .journal-featured .jf-media{
   position:relative; aspect-ratio:4/3; overflow:hidden;
-  background:var(--ink-850);
+  background:
+    radial-gradient(120% 120% at 30% 0%, rgba(255,255,255,.04), transparent 60%),
+    var(--ink-850);
+  display:flex; align-items:center; justify-content:center;
+  padding:14px;
 }
-.journal-featured .jf-media img{ width:100%; height:100%; object-fit:cover; transition:transform .6s var(--ease); }
+.journal-featured .jf-media img{ width:100%; height:100%; object-fit:contain; transition:transform .6s var(--ease); }
 .journal-featured:hover .jf-media img{ transform:scale(1.04); }
 .journal-featured .jf-body{ padding:clamp(20px,3vw,20px) clamp(20px,3vw,36px) clamp(20px,3vw,36px) 0; }
 [dir="rtl"] .journal-featured .jf-body{ padding:clamp(20px,3vw,20px) 0 clamp(20px,3vw,36px) clamp(20px,3vw,36px); }
@@ -137,8 +141,16 @@
   transition:transform .4s var(--ease), border-color .4s var(--ease);
 }
 .jcard:hover{ transform:translateY(-5px); border-color:var(--ink-600); }
-.jcard .jc-media{ aspect-ratio:16/10; overflow:hidden; background:var(--ink-850); position:relative; }
-.jcard .jc-media img{ width:100%; height:100%; object-fit:cover; transition:transform .5s var(--ease); }
+.jcard .jc-media{
+  aspect-ratio:16/10; overflow:hidden;
+  background:
+    radial-gradient(120% 120% at 30% 0%, rgba(255,255,255,.04), transparent 60%),
+    var(--ink-850);
+  position:relative;
+  display:flex; align-items:center; justify-content:center;
+  padding:10px;
+}
+.jcard .jc-media img{ width:100%; height:100%; object-fit:contain; transition:transform .5s var(--ease); }
 .jcard:hover .jc-media img{ transform:scale(1.06); }
 .jcard .jc-body{ padding:18px 20px 20px; display:flex; flex-direction:column; gap:8px; flex:1; }
 .jc-meta{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; font-family:var(--font-mono); font-size:.72rem; color:var(--ink-text-mute); }
@@ -178,10 +190,14 @@
   border-radius:var(--radius-lg);
   overflow:hidden;
   border:1px solid var(--line);
-  aspect-ratio:16/9;
-  background:var(--ink-900);
+  background:
+    radial-gradient(120% 120% at 30% 0%, rgba(255,255,255,.04), transparent 60%),
+    var(--ink-900);
+  height:clamp(240px, 40vw, 480px);
+  display:flex; align-items:center; justify-content:center;
+  padding:18px;
 }
-.post-cover img{ width:100%; height:100%; object-fit:cover; }
+.post-cover img{ width:100%; height:100%; object-fit:contain; }
 
 /* Repost source card */
 .repost-card{

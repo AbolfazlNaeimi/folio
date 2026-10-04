@@ -177,6 +177,114 @@
     });
   }
 
+  /* Nav active-indicator */
+  var navLinksEl = document.querySelector(".nav-links");
+  if (navLinksEl) {
+    var indicator = document.createElement("span");
+    indicator.className = "nav-indicator";
+    indicator.setAttribute("aria-hidden", "true");
+    navLinksEl.appendChild(indicator);
+    var moveIndicator = function (el) {
+      indicator.style.left = el.offsetLeft + "px";
+      indicator.style.width = el.offsetWidth + "px";
+    };
+    var navAnchors = navLinksEl.querySelectorAll("a");
+    navAnchors.forEach(function (a) {
+      a.addEventListener("mouseenter", function () {
+        moveIndicator(a);
+      });
+    });
+    var current = navLinksEl.querySelector('a[aria-current="page"]');
+    if (current) moveIndicator(current);
+    navLinksEl.addEventListener("mouseleave", function () {
+      if (current) moveIndicator(current);
+    });
+  }
+
+  /* Easter Egg — hidden, not advertised in the UI.
+     Desktop: type B U I L D on a physical keyboard (each key within 700ms
+     of the last). Mobile: press and hold the logo/monogram for ~1.2s.
+     Only wires up if the overlay markup is present on the page. */
+  var egg = document.getElementById("easter-egg");
+  if (egg) {
+    var eggPanel = egg.querySelector(".egg-panel");
+    var eggTrigger = null;
+
+    function openEgg(triggerEl) {
+      eggTrigger = triggerEl || null;
+      egg.classList.add("is-open");
+      egg.setAttribute("aria-hidden", "false");
+      var closeBtn = egg.querySelector(".egg-close");
+      if (closeBtn) closeBtn.focus();
+      document.addEventListener("keydown", onEggKeydown);
+    }
+    function closeEgg() {
+      egg.classList.remove("is-open");
+      egg.setAttribute("aria-hidden", "true");
+      document.removeEventListener("keydown", onEggKeydown);
+      if (eggTrigger && eggTrigger.focus) eggTrigger.focus();
+    }
+    function onEggKeydown(e) {
+      if (e.key === "Escape") closeEgg();
+    }
+
+    var closeBtn = egg.querySelector(".egg-close");
+    if (closeBtn) closeBtn.addEventListener("click", function () { closeEgg(); });
+    egg.addEventListener("click", function (e) {
+      if (e.target === egg) closeEgg();
+    });
+
+    // Desktop: keyboard sequence B-U-I-L-D
+    var SEQUENCE = ["b", "u", "i", "l", "d"];
+    var buffer = [];
+    var lastKeyTime = 0;
+    document.addEventListener("keydown", function (e) {
+      if (egg.classList.contains("is-open")) return;
+      var tag = (e.target && e.target.tagName) || "";
+      if (tag === "INPUT" || tag === "TEXTAREA") return;
+      var now = Date.now();
+      if (now - lastKeyTime > 700) buffer = [];
+      lastKeyTime = now;
+      buffer.push(e.key.toLowerCase());
+      buffer = buffer.slice(-SEQUENCE.length);
+      if (buffer.join("") === SEQUENCE.join("")) {
+        buffer = [];
+        openEgg(document.activeElement);
+      }
+    });
+
+    // Mobile/touch: press and hold the logo for ~1.2s (a normal tap still
+    // navigates as usual; the hold is what opens it)
+    var brandEl = document.querySelector(".site-header .brand");
+    if (brandEl) {
+      var holdTimer = null;
+      var heldOpen = false;
+      brandEl.style.webkitTouchCallout = "none";
+      brandEl.addEventListener("pointerdown", function (e) {
+        if (e.pointerType === "mouse") return;
+        heldOpen = false;
+        holdTimer = setTimeout(function () {
+          heldOpen = true;
+          openEgg(brandEl);
+        }, 1200);
+      });
+      ["pointerup", "pointerleave", "pointercancel"].forEach(function (ev) {
+        brandEl.addEventListener(ev, function () {
+          clearTimeout(holdTimer);
+        });
+      });
+      brandEl.addEventListener("click", function (e) {
+        if (heldOpen) {
+          e.preventDefault();
+          heldOpen = false;
+        }
+      });
+      brandEl.addEventListener("contextmenu", function (e) {
+        if (heldOpen) e.preventDefault();
+      });
+    }
+  }
+
   /* Footer year */
   var yearEl = document.querySelector("[data-year]");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
